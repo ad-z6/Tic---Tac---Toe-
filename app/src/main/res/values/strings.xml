@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">Tic-Tac-Toe</string>
+
+    <string-array name="bot_levels">
+        <item>eazy</item>
+        <item>med</item>
+        <item>Hard</item>
+    </string-array>
+
+</resources>

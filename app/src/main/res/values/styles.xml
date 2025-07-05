@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="GameButtonStyle">
+    <item name="android:layout_width">90dp</item>
+    <item name="android:layout_height">90dp</item>
+    <item name="android:textSize">32sp</item>
+    <item name="android:textColor">#FFFFFF</item>
+    <item name="android:background">@drawable/rounded_button</item>
+    <item name="android:fontFamily">sans-serif-condensed</item>
+    <item name="android:layout_margin">4dp</item>
+</style>
+
+    <style name="XOButtonStyle">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">#333333</item>
+        <item name="android:backgroundTint">#E0E0E0</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:background">@drawable/btn_bg</item>
+    </style>
+
+</resources>

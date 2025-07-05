@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".GameActivity">
+
+    <LinearLayout
+        android:id="@+id/scoreLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/playerScoreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You: 0"
+            android:textSize="18sp"
+            android:padding="16dp" />
+
+        <TextView
+            android:id="@+id/botScoreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bot: 0"
+            android:textSize="18sp"
+            android:padding="16dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/resetScoreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset points"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"/>
+
+    <!-- العنوان -->
+    <TextView
+        android:id="@+id/tvTurn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turn: X"
+        android:textSize="24sp"
+        android:textColor="#333"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="24dp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium" />
+
+    <!-- شبكة اللعبة -->
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rowCount="3"
+        android:columnCount="3"
+        android:layout_margin="16dp">
+
+        <Button android:id="@+id/btn00" style="@style/XOButtonStyle"/>
+        <Button android:id="@+id/btn01" style="@style/XOButtonStyle"/>
+        <Button android:id="@+id/btn02" style="@style/XOButtonStyle"/>
+        <Button android:id="@+id/btn10" style="@style/XOButtonStyle"/>
+        <Button android:id="@+id/btn11" style="@style/XOButtonStyle"/>
+        <Button android:id="@+id/btn12" style="@style/XOButtonStyle"/>
+        <Button android:id="@+id/btn20" style="@style/XOButtonStyle"/>
+        <Button android:id="@+id/btn21" style="@style/XOButtonStyle"/>
+        <Button android:id="@+id/btn22" style="@style/XOButtonStyle"/>
+
+    </GridLayout>
+
+    <!-- زر العودة للقائمة -->
+    <Button
+        android:id="@+id/btnBackToMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back to list"
+        android:layout_marginTop="24dp"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#2196F3"
+        android:fontFamily="sans-serif-medium"
+        android:background="@drawable/btn_bg" />
+
+</LinearLayout>

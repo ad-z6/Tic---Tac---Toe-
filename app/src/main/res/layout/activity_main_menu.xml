@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainMenuLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1E1E2F"
+    tools:context=".MainMenuActivity">
+
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/tic_tac_toe_bg">
+
+        <!-- ضع هنا شبكة اللعبة (3×3) -->
+        <GridLayout
+            android:id="@+id/gridBoard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:rowCount="3"
+            android:columnCount="3">
+
+            <!-- عناصر الواجهة وإكس/أو -->
+        </GridLayout>
+
+    </FrameLayout>
+
+    <!-- عنوان اللعبة -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XO Game"
+        android:textSize="48sp"
+        android:textColor="#FFD700"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"/>
+
+    <!-- زر اللعب ضد لاعب -->
+    <Button
+        android:id="@+id/btnPvP"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Play against Player"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_button"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvTitle"
+        android:layout_marginTop="60dp"
+        android:fontFamily="sans-serif-medium" />
+
+    <!-- زر اللعب ضد بوت -->
+    <TextView
+        android:id="@+id/tvBotLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center" />
+
+    <Button
+        android:id="@+id/btnPvBot"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Play against Bot"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_button"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnPvP"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-medium" />
+
+</RelativeLayout>
