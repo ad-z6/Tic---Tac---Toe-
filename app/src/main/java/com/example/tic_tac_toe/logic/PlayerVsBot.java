@@ -167,7 +167,7 @@ public class PlayerVsBot extends GameLogic {
                         int score = minimax(board, depth + 1, false);
                         board[i][j] = "";
                         bestScore = Math.max(score, bestScore);
-                    }
+                    } //test
             return bestScore;
         } else {
             int bestScore = Integer.MAX_VALUE;
