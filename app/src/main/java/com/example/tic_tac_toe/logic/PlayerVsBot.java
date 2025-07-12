@@ -1,8 +1,6 @@
 package com.example.tic_tac_toe.logic;
 
-import android.app.Activity; import android.app.AlertDialog; import android.content.Context; import android.os.Handler; import android.widget.Button;
-
-import com.example.tic_tac_toe.utils.SoundManager;
+import android.content.Context; import android.os.Handler; import android.widget.Button;
 
 import java.util.ArrayList; import java.util.List; import java.util.Random;
 
@@ -14,8 +12,8 @@ public class PlayerVsBot extends GameLogic {
     private final Random random = new Random();
     private final Handler botHandler = new Handler();
 
-    public PlayerVsBot(Button[][] buttons, Context context, SoundManager soundManager, String level) {
-        super(buttons, context, soundManager);
+    public PlayerVsBot(Button[][] buttons, Context context, String level) {
+        super(buttons, context);
         this.botLevel = level;
         this.playerXTurn = true;
     }
@@ -29,18 +27,15 @@ public class PlayerVsBot extends GameLogic {
         if (!buttons[row][col].getText().toString().equals("")) return;
 
         buttons[row][col].setText("X");
-        soundManager.playClick();
         roundCount++;
 
         if (checkForWin()) {
             gameOver = true;
-            soundManager.playWin();
             disableButtons();
             if (gameEndListener != null) gameEndListener.onPlayerWin();
             return;
         } else if (roundCount == 9) {
             gameOver = true;
-            soundManager.playDraw();
             if (gameEndListener != null) gameEndListener.onDraw();
             return;
         }
@@ -80,17 +75,14 @@ public class PlayerVsBot extends GameLogic {
 
         if (move != null) {
             buttons[move[0]][move[1]].setText("O");
-            soundManager.playClick();
             roundCount++;
 
             if (checkForWin()) {
                 gameOver = true;
-                soundManager.playLose();
                 disableButtons();
                 if (gameEndListener != null) gameEndListener.onBotWin();
             } else if (isBoardFull()) {
                 gameOver = true;
-                soundManager.playDraw();
                 if (gameEndListener != null) gameEndListener.onDraw();
             } else {
                 playerXTurn = true;

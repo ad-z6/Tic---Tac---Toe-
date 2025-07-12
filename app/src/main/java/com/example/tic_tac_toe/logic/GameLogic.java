@@ -3,8 +3,6 @@ package com.example.tic_tac_toe.logic;
 import android.content.Context;
 import android.widget.Button;
 
-import com.example.tic_tac_toe.utils.SoundManager;
-
 public abstract class GameLogic {
 
     protected Button[][] buttons;
@@ -12,12 +10,10 @@ public abstract class GameLogic {
     protected int roundCount = 0;
     protected Context context;
     protected boolean gameOver = false;
-    protected SoundManager soundManager;
 
-    public GameLogic(Button[][] buttons, Context context, SoundManager soundManager) {
+    public GameLogic(Button[][] buttons, Context context) {
         this.buttons = buttons;
         this.context = context;
-        this.soundManager = soundManager;
     }
 
     public boolean isGameOver() {

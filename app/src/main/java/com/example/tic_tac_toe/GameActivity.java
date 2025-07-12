@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tic_tac_toe.logic.PlayerVsBot;
-import com.example.tic_tac_toe.utils.SoundManager;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -19,7 +18,6 @@ public class GameActivity extends AppCompatActivity {
     private int scoreO = 0;
 
     private String botLevel = "eazy";
-    private SoundManager soundManager;
     private PlayerVsBot playerVsBot;
     private Button[][] buttons = new Button[3][3];
     private TextView tvTurn;
@@ -33,7 +31,6 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         tvTurn = findViewById(R.id.tvTurn);
-        soundManager = new SoundManager(this);
 
         playerScoreText = findViewById(R.id.playerScoreText);
         botScoreText = findViewById(R.id.botScoreText);
@@ -90,7 +87,7 @@ public class GameActivity extends AppCompatActivity {
         tvTurn.setText("Your Turn (You are X)");
 
         // 👇 إنشاء كائن PlayerVsBot مرة واحدة فقط
-        playerVsBot = new PlayerVsBot(buttons, this, soundManager, botLevel);
+        playerVsBot = new PlayerVsBot(buttons, this, botLevel);
 
         // 👇 ربط الأحداث مرة واحدة
         playerVsBot.setTurnChangeListener(message -> tvTurn.setText(message));

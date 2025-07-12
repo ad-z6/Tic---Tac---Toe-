@@ -77,4 +77,17 @@
         android:layout_marginTop="30dp"
         android:fontFamily="sans-serif-medium" />
 
+    <Button
+        android:id="@+id/btnQuit"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Quit"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_button"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnPvBot"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-medium" />
+
 </RelativeLayout>

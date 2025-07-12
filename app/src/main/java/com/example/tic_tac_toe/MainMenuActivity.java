@@ -35,5 +35,17 @@ public class MainMenuActivity extends AppCompatActivity {
                     })
                     .show();
         });
+
+        Button btnQuit = findViewById(R.id.btnQuit);
+        btnQuit.setOnClickListener(v -> {
+            new AlertDialog.Builder(MainMenuActivity.this)
+                    .setTitle("Exit Game")
+                    .setMessage("Are you sure you want to quit?")
+                    .setPositiveButton("Yes", (dialog, which) -> {
+                        finishAffinity(); // يغلق التطبيق بالكامل
+                    })
+                    .setNegativeButton("No", null) // لا يفعل شيئًا إذا ضغط "No"
+                    .show();
+        });
     }
 }
