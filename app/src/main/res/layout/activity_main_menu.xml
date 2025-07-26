@@ -32,7 +32,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="XO Game"
+        android:text="TicTacPro"
         android:textSize="48sp"
         android:textColor="#FFD700"
         android:textStyle="bold"
