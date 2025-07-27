@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainMenuLayout"
+    android:id="@+id/MainMenuLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1E1E2F"
     tools:context=".MainMenuActivity">
 
+    <!-- Container for background and game grid -->
     <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/tic_tac_toe_bg">
 
-        <!-- ضع هنا شبكة اللعبة (3×3) -->
+        <!-- 3x3 Grid for XO game -->
         <GridLayout
             android:id="@+id/gridBoard"
             android:layout_width="wrap_content"
@@ -21,13 +21,12 @@
             android:layout_gravity="center"
             android:rowCount="3"
             android:columnCount="3">
-
-            <!-- عناصر الواجهة وإكس/أو -->
+            <!-- Game cells will be added dynamically -->
         </GridLayout>
 
     </FrameLayout>
 
-    <!-- عنوان اللعبة -->
+    <!-- Game title -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
@@ -40,7 +39,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"/>
 
-    <!-- زر اللعب ضد لاعب -->
+    <!-- Button: Play vs Player -->
     <Button
         android:id="@+id/btnPvP"
         android:layout_width="300dp"
@@ -54,7 +53,7 @@
         android:layout_marginTop="60dp"
         android:fontFamily="sans-serif-medium" />
 
-    <!-- زر اللعب ضد بوت -->
+    <!-- TextView for Bot Level (currently empty) -->
     <TextView
         android:id="@+id/tvBotLevel"
         android:layout_width="wrap_content"
@@ -64,6 +63,7 @@
         android:layout_marginTop="16dp"
         android:layout_gravity="center" />
 
+    <!-- Button: Play vs Bot -->
     <Button
         android:id="@+id/btnPvBot"
         android:layout_width="300dp"
@@ -77,6 +77,7 @@
         android:layout_marginTop="30dp"
         android:fontFamily="sans-serif-medium" />
 
+    <!-- Button: Quit game -->
     <Button
         android:id="@+id/btnQuit"
         android:layout_width="300dp"

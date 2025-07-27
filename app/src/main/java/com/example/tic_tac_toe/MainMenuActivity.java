@@ -18,10 +18,12 @@ public class MainMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
         // Connects the activity to its XML layout – קישור בין הקוד לקובץ העיצוב (layout)
 
+
         // ========== Button Initialization ==========
         Button btnPvP = findViewById(R.id.btnPvP);     // Button: Player vs Player – שחקן מול שחקן
         Button btnBot = findViewById(R.id.btnPvBot);   // Button: Player vs Bot – שחקן מול מחשב
         Button btnQuit = findViewById(R.id.btnQuit);   // Button: Quit – יציאה
+
 
         // ========== Player vs Player Mode ==========
         btnPvP.setOnClickListener(v -> {
@@ -30,6 +32,7 @@ public class MainMenuActivity extends AppCompatActivity {
             intent.putExtra("bot_mode", false); // Indicates PvP mode – שליחת פרמטר שמבטל מצב בוט
             startActivity(intent);              // Start the GameActivity – התחלת המסך הבא
         });
+
 
         // ========== Player vs Bot Mode with Difficulty Selection ==========
         btnBot.setOnClickListener(v -> {
@@ -46,6 +49,7 @@ public class MainMenuActivity extends AppCompatActivity {
                     })
                     .show(); // Display the dialog – הצגת הדיאלוג
         });
+
 
         // ========== Quit Button Logic ==========
         btnQuit.setOnClickListener(v -> {
