@@ -249,6 +249,12 @@ public class PlayerVsBot extends GameLogic {
         }
     }
 
+    // Returns whether it's currently X player's turn
+    // מחזירה אם עכשיו תור של השחקן X
+    public boolean isPlayerXTurn() {
+        return playerXTurn;
+    }
+
     // Interface for handling turn change notifications
 // ממשק להודעות על שינוי תור
     public interface OnTurnChangeListener {

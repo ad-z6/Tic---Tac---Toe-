@@ -1,61 +1,62 @@
 // MainMenuActivity.java
-// This class represents the main menu screen – המסך הראשי שבו המשתמש בוחר בין המצבים של המשחק
+// This class manages the main screen – המסך הראשי של המשחק
+// Allows user to choose game mode (PvP / PvBot) or quit the game
 
 package com.example.tic_tac_toe;
 
-// Imports for Android components used in this Activity – יבוא מחלקות שקשורות לאנדרואיד
-import android.content.Intent; // לעבור בין מסכים – מעבר בין Activities
-import android.os.Bundle;// Used to pass data and manage activity state // משמש להעברת נתונים וניהול מצב הפעילות
-import android.widget.Button;
-import androidx.appcompat.app.AlertDialog; // תיבת דיאלוג מודרנית
-import androidx.appcompat.app.AppCompatActivity; // מחלקת בסיס לכל Activity באפליקציה
+// ========== Imports ==========
+import android.content.Intent;         // Used to navigate between activities – מעבר בין מסכים (Intent)
+import android.os.Bundle;              // Used for passing data and restoring activity state – אובייקט נתונים בעת יצירת Activity
+import android.widget.Button;          // UI element for user interaction – כפתור
+import androidx.appcompat.app.AlertDialog;   // A modern dialog box – תיבת דיאלוג
+import androidx.appcompat.app.AppCompatActivity; // Base class for activities – מחלקת בסיס לכל מסך (Activity)
 
-// MainMenuActivity extends AppCompatActivity – יורש ממחלקת Activity רגילה
 public class MainMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu); // טוען את קובץ ה־XML של העיצוב למסך הזה
+        setContentView(R.layout.activity_main_menu);
+        // Connects the activity to its XML layout – קישור בין הקוד לקובץ העיצוב (layout)
 
-        // יצירת קישור בין משתני ג'אווה לכפתורים במסך לפי ה־id שלהם
-        Button btnPvP = findViewById(R.id.btnPvP);         // כפתור: שחקן מול שחקן
-        Button btnBot = findViewById(R.id.btnPvBot);       // כפתור: שחקן מול בוט
+        // ========== Button Initialization ==========
+        Button btnPvP = findViewById(R.id.btnPvP);     // Button: Player vs Player – שחקן מול שחקן
+        Button btnBot = findViewById(R.id.btnPvBot);   // Button: Player vs Bot – שחקן מול מחשב
+        Button btnQuit = findViewById(R.id.btnQuit);   // Button: Quit – יציאה
 
-        // כאשר המשתמש לוחץ על כפתור שחקן מול שחקן
+        // ========== Player vs Player Mode ==========
         btnPvP.setOnClickListener(v -> {
-            Intent intent = new Intent(MainMenuActivity.this, GameActivity.class); // יצירת אינטנט למסך המשחק
-            intent.putExtra("bot_mode", false); // שולח מידע לפעילות הבאה: לא מצב בוט
-            startActivity(intent); // התחלת הפעילות הבאה
+            // Create an Intent to move to GameActivity – יצירת מעבר בין מסכים
+            Intent intent = new Intent(MainMenuActivity.this, GameActivity.class);
+            intent.putExtra("bot_mode", false); // Indicates PvP mode – שליחת פרמטר שמבטל מצב בוט
+            startActivity(intent);              // Start the GameActivity – התחלת המסך הבא
         });
 
-        // כאשר המשתמש לוחץ על כפתור שחקן מול בוט
+        // ========== Player vs Bot Mode with Difficulty Selection ==========
         btnBot.setOnClickListener(v -> {
-            String[] levels = {"easy", "medium", "hard"}; // הגדרת רמות קושי
+            String[] levels = {"easy", "medium", "hard"};  // Difficulty levels – רמות קושי
 
-            // הצגת דיאלוג בחירה לרמת קושי
             new AlertDialog.Builder(MainMenuActivity.this)
-                    .setTitle("Choose the difficulty level") // כותרת
+                    .setTitle("Choose the difficulty level")  // Dialog title – כותרת הדיאלוג
                     .setItems(levels, (dialog, which) -> {
+                        // Create an intent and send bot_mode and selected difficulty – שליחת מצב בוט ורמה
                         Intent intent = new Intent(MainMenuActivity.this, GameActivity.class);
-                        intent.putExtra("bot_mode", true); // שולח מידע שזה כן מצב בוט
-                        intent.putExtra("bot_level", levels[which]);  // שולח את רמת הקושי שנבחרה
-                        startActivity(intent); // התחלת המשחק
+                        intent.putExtra("bot_mode", true);
+                        intent.putExtra("bot_level", levels[which]);
+                        startActivity(intent); // Start game in PvBot mode – התחלת משחק מול מחשב
                     })
-                    .show(); // הצגת הדיאלוג
+                    .show(); // Display the dialog – הצגת הדיאלוג
         });
 
-        // כפתור יציאה מהמשחק
-        Button btnQuit = findViewById(R.id.btnQuit);
+        // ========== Quit Button Logic ==========
         btnQuit.setOnClickListener(v -> {
-            // הצגת דיאלוג אישור האם באמת לצאת
             new AlertDialog.Builder(MainMenuActivity.this)
-                    .setTitle("Exit Game") // כותרת של הדיאלוג
-                    .setMessage("Are you sure you want to quit?") // הודעת אישור
+                    .setTitle("Exit Game")                      // Title – כותרת
+                    .setMessage("Are you sure you want to quit?") // Confirmation message – הודעת אישור
                     .setPositiveButton("Yes", (dialog, which) -> {
-                        finishAffinity(); // סוגר את כל הפעילויות ומסיים את האפליקציה
+                        finishAffinity(); // Exit the app completely – סוגר את כל המסכים והאפליקציה
                     })
-                    .setNegativeButton("No", null) // לא עושה כלום אם בוחרים לא
-                    .show(); // הצגת הדיאלוג
+                    .setNegativeButton("No", null) // Dismiss dialog – ביטול הפעולה
+                    .show();
         });
     }
 }
